@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">VolgSMU Tests</string>
+    <string name="test_discipline">Tests on</string>
+    <string name="begin_test">Begin test</string>
+    <string name="continue_test">Continue</string>
+    <string name="learning_materials">Learning material</string>
+
+    <array name="disсipline">
+        <item>Human Anatomy</item>
+        <item>Biophysical properties of vital functions</item>
+        <item>Cariesology and diseases of hard dental tissue</item>
+        <item>Manage-\nment</item>
+        <item>Faculty therapy, occupational diseases</item>
+        <item>Histology</item>
+        <item>Russian History</item>
+        <item>Microbio-\nlogy, virology</item>
+        <item>Neurology</item>
+        <item>Normal physiology</item>
+        <item>Ophthalmo-\nlogy</item>
+        <item>Public health and health care</item>
+        <item>Pedagogics and sociology</item>
+        <item>Pediatrics</item>
+        <item>Pharmaco-\nlogy</item>
+        <item>Propaede-\nutics of internal diseases</item>
+        <item>Prosthodontics</item>
+        <item>Psychiatry and narcology</item>
+        <item>Ethics, law and management in dentistry</item>
+        <item>Radiation diagnostics and therapy</item>
+    </array>
+
+    <array name="databaseFileName">
+        <item>AnatomyHuman</item>
+        <item>BiophysProp</item>
+        <item>Cariesology_and_diseases_of_hard_dental_tissue</item>
+        <item>Deloproizvodstvo</item>
+        <item>Fak_terapiya_prof_bol</item>
+        <item>Histology</item>
+        <item>History</item>
+        <item>MikrobiologijaVirusologija</item>
+        <item>Neurology_test</item>
+        <item>NormPhysiology_test</item>
+        <item>Ophthalmology_test</item>
+        <item>OZZ</item>
+        <item>PedagogicsAndSociology_test</item>
+        <item>Pediatriya</item>
+        <item>Pharmacology</item>
+        <item>PropedevtikaPed</item>
+        <item>Prosthodontics</item>
+        <item>Psychiatry and narcology</item>
+        <item>StomatologyEthics</item>
+        <item>Xray</item>
+    </array>
+
+    <array name="learningMaterialURL">
+        <item>http://www.volgmed.ru/ru/files/list/207/?dept=79&amp;rdir=207</item>
+        <item>http://www.volgmed.ru/ru/files/list/263/?dept=73&amp;rdir=263</item>
+        <item>http://www.volgmed.ru/ru/files/list/101/?dept=77&amp;rdir=101</item>
+        <item>http://www.volgmed.ru/ru/files/list/199/?dept=44&amp;rdir=199</item>
+        <item>http://www.volgmed.ru/ru/files/list/707/?dept=113&amp;rdir=707</item>
+        <item>http://www.volgmed.ru/ru/files/list/215/?dept=80&amp;rdir=215</item>
+        <item>http://www.volgmed.ru/ru/files/list/645/?dept=110&amp;rdir=645</item>
+    </array>
+
+
+    <string name="title">VolgSMU Tests 1.4.3</string>
+    <string name="feedback">Feedback</string>
+    <string name="about">«VolgSMU Tests» is the official app of the Volgograd State Medical University to conduct test control of students\' knowledge and to view VolgSMU
+        tutorials in preparation for classes on mobile devices.\n\nThe test tasks were prepared in accordance with the work program of the subjects and Federal State
+        Educational Standards of Russia.\nExam mode allows you to disable the display of correct answers during the test, leaving the result unknown until its
+        completion.\n\nCopyright © 2015-2017 VolgSMU.\n All rights reserved.</string>
+    <string name="visitSite">Visit VolgSMU site</string>
+    <string name="site">http://www.volgmed.ru</string>
+    <string name="exam_mode">Exam mode:</string>
+
+    <string name="chooseSections">Choose sections</string>
+    <string name="count">Questions count:</string>
+    <string name="all">All</string>
+    <string name="begin">Begin</string>
+
+    <string name="ans">Answer</string>
+    <string name="next">Next</string>
+    <string name="results">Results</string>
+    <string name="answer">Answer:</string>
+    <string name="answerR">Right answer:</string>
+
+    <string name="email">AppVolgSMU@gmail.com</string>
+    <string name="er_email">Email client not installed</string>
+
+    <string name="likeApp">Liked the App?\nPlease, leave us a review :)</string>
+    <array name="dialog">
+        <item>Rate now</item>
+        <item>Later</item>
+        <item>Never</item>
+    </array>
+
+    <string name="share">Share</string>
+    <string name="sendfrom">Sent from</string>
+    <string name="start_text">To start testing,\nselect one of the disciplines.</string>
+
+</resources>
