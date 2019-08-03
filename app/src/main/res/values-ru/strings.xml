@@ -74,5 +74,12 @@
     <string name="site">http://www.volgmed.ru</string>
     <string name="email">AppVolgSMU@gmail.com</string>
     <string name="start_text">Чтобы начать тестирование,\nвыберите одну из дисциплин</string>
+    <string name="Disciplines">Дисциплины</string>
+    <string name="Accreditation_SPO">Аккредитация СПО</string>
+    <string name="Accreditation">Аккредитация</string>
+    <string name="About_the_app">О программе</string>
+    <string name="Contact_us">Связаться с нами</string>
+    <string name="Share_the_app">Поделиться приложением</string>
+    <string name="menu">Меню</string>
 
 </resources>

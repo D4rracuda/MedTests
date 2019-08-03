@@ -96,5 +96,12 @@
     <string name="share">Share</string>
     <string name="sendfrom">Sent from</string>
     <string name="start_text">To start testing,\nselect one of the disciplines.</string>
+    <string name="Disciplines">Disciplines</string>
+    <string name="Accreditation_SPO">Accreditation SPO</string>
+    <string name="About_the_app">About the app</string>
+    <string name="Accreditation">Accreditation</string>
+    <string name="Contact_us">Contact us</string>
+    <string name="Share_the_app">Share the app</string>
+    <string name="menu">Menu</string>
 
 </resources>

@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mTopToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(mTopToolbar);
         mTopToolbar.setTitleTextColor(getResources().getColor(colorAccent));
-        setTitle("Дисциплины");
+        setTitle(R.string.Disciplines);
 
         picker = findViewById(R.id.picker);
         picker.setBubbleSize(1);
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void showDialogThird(){
         Bundle args = new Bundle();
-        args.putString("title", "Меню");
+        args.putString("title", getString(R.string.menu));
         ActionBarDialog actionbarDialog = new ActionBarDialog();
         actionbarDialog.setArguments(args);
         actionbarDialog.show(getSupportFragmentManager(),

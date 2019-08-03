@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="25dp"
-    android:height="25dp"
-    android:viewportWidth="306"
-    android:viewportHeight="306">
+    android:width="30dp"
+    android:height="30dp"
+    android:viewportWidth="129"
+    android:viewportHeight="129">
 
-        <group
-            android:name="rotation"
-            android:pivotX="50">
-            <path
-                android:name="arror"
-                android:fillColor="#1B912E"
-                android:pathData="M 270.3 58.65 L 153 175.95 L 35.7 58.65 L 0 94.35 L 153 247.35 L 306 94.35 Z" />
-        </group>
+    <path
+        android:fillColor="@color/colorAccent"
+        android:pathData="M121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z" />
 </vector>
