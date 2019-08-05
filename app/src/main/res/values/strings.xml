@@ -115,7 +115,7 @@
     <string name="about">«VolgSMU Tests» is the official app of the Volgograd State Medical University to conduct test control of students\' knowledge and to view VolgSMU
         tutorials in preparation for classes on mobile devices.\n\nThe test tasks were prepared in accordance with the work program of the subjects and Federal State
         Educational Standards of Russia.\nExam mode allows you to disable the display of correct answers during the test, leaving the result unknown until its
-        completion.\n\nCopyright © 2015-2017 VolgSMU.\n All rights reserved.</string>
+        completion.</string>
     <string name="visitSite">Visit VolgSMU site</string>
     <string name="site">http://www.volgmed.ru</string>
     <string name="exam_mode">Exam mode:</string>
