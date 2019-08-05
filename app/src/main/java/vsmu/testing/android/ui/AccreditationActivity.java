@@ -19,7 +19,8 @@ import com.igalata.bubblepicker.rendering.BubblePicker;
 
 import org.jetbrains.annotations.NotNull;
 
-import vsmu.testing.android.ActionBarDialog;
+import vsmu.testing.android.DialogAccreditation;
+import vsmu.testing.android.DialogDisciplines;
 import vsmu.testing.android.DismissListener;
 import vsmu.testing.android.R;
 import vsmu.testing.android.database.DBHelper;
@@ -92,14 +93,15 @@ public class AccreditationActivity extends AppCompatActivity {
         picker.onResume();
     }
 
+
     public void showDialogThird(){
         Bundle args = new Bundle();
         args.putString("title", getString(R.string.menu));
-        ActionBarDialog actionbarDialog = new ActionBarDialog();
-        actionbarDialog.setArguments(args);
-        actionbarDialog.show(getSupportFragmentManager(),
-                "third_dialog");
-        actionbarDialog.setMyCustomListener(new DismissListener() {
+        DialogAccreditation dialogAccreditation = new DialogAccreditation();
+        dialogAccreditation.setArguments(args);
+        dialogAccreditation.show(getSupportFragmentManager(),
+                "dialog_disciplines");
+        dialogAccreditation.setMyCustomListener(new DismissListener() {
 
             @Override
             public void onSuccess(boolean dismiss) {

@@ -19,7 +19,9 @@ import com.igalata.bubblepicker.rendering.BubblePicker;
 
 import org.jetbrains.annotations.NotNull;
 
-import vsmu.testing.android.ActionBarDialog;
+import vsmu.testing.android.DialogAccreditation;
+import vsmu.testing.android.DialogAccreditationSPO;
+import vsmu.testing.android.DialogDisciplines;
 import vsmu.testing.android.DismissListener;
 import vsmu.testing.android.R;
 import vsmu.testing.android.database.DBHelper;
@@ -95,11 +97,11 @@ public class AccreditationSPOActivity extends AppCompatActivity {
     public void showDialogThird(){
         Bundle args = new Bundle();
         args.putString("title", getString(R.string.menu));
-        ActionBarDialog actionbarDialog = new ActionBarDialog();
-        actionbarDialog.setArguments(args);
-        actionbarDialog.show(getSupportFragmentManager(),
-                "third_dialog");
-        actionbarDialog.setMyCustomListener(new DismissListener() {
+        DialogAccreditationSPO dialogAccreditationSPO = new DialogAccreditationSPO();
+        dialogAccreditationSPO.setArguments(args);
+        dialogAccreditationSPO.show(getSupportFragmentManager(),
+                "dialog_disciplines");
+        dialogAccreditationSPO.setMyCustomListener(new DismissListener() {
 
             @Override
             public void onSuccess(boolean dismiss) {

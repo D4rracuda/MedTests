@@ -14,11 +14,12 @@ import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
 
+import vsmu.testing.android.ui.AboutTheAppActivity;
 import vsmu.testing.android.ui.AccreditationActivity;
 import vsmu.testing.android.ui.AccreditationSPOActivity;
 import vsmu.testing.android.ui.MainActivity;
 
-public class ActionBarDialog extends DialogFragment implements View.OnClickListener {
+public class DialogAccreditationSPO extends DialogFragment implements View.OnClickListener {
 
     Dialog dialog;
     TextView textView;
@@ -45,13 +46,13 @@ public class ActionBarDialog extends DialogFragment implements View.OnClickListe
                              Bundle savedInstanceState) {
         Bundle args = getArguments();
         String title = args.getString("title");
-        View v = inflater.inflate(R.layout.third_dialog, container, false);
-        v.findViewById(R.id.textView3).setOnClickListener(this);
-        v.findViewById(R.id.textView5).setOnClickListener(this);
-        v.findViewById(R.id.textView6).setOnClickListener(this);
-        v.findViewById(R.id.textView7).setOnClickListener(this);
+        View v = inflater.inflate(R.layout.dialog_accreditation_spo, container, false);
+        v.findViewById(R.id.disciplines).setOnClickListener(this);
+        v.findViewById(R.id.accreditation).setOnClickListener(this);
+        v.findViewById(R.id.accreditation_spo).setOnClickListener(this);
+        v.findViewById(R.id.about_the_app).setOnClickListener(this);
         v.findViewById(R.id.feedback).setOnClickListener(this);
-        v.findViewById(R.id.textView9).setOnClickListener(this);
+        v.findViewById(R.id.share_the_app).setOnClickListener(this);
         Toolbar toolbar = v.findViewById(R.id.toolbar_second);
         toolbar.inflateMenu(R.menu.menu_second);
         toolbar.setTitle(title);
@@ -60,8 +61,13 @@ public class ActionBarDialog extends DialogFragment implements View.OnClickListe
             public boolean onMenuItemClick(MenuItem item) {
                 Log.i("click","click");
                 dialog.dismiss();
-                dismiss = true;
-                listener.onSuccess(dismiss);
+                try {
+                    dismiss = true;
+                    listener.onSuccess(dismiss);
+                }
+                catch (NullPointerException e) {
+                    //sth
+                }
                 return true;
             }
         });
@@ -78,31 +84,33 @@ public class ActionBarDialog extends DialogFragment implements View.OnClickListe
     @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.textView3:
+                case R.id.disciplines:
                     intent = new Intent(getContext(), MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     break;
-                case R.id.textView5:
+                case R.id.accreditation:
                     intent = new Intent(getContext(), AccreditationActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     break;
-                case R.id.textView6:
+                case R.id.accreditation_spo:
                     intent = new Intent(getContext(), AccreditationSPOActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     break;
-                case R.id.textView7:
-
+                case R.id.about_the_app:
+                    intent = new Intent(getContext(), AboutTheAppActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
                     break;
                 case R.id.feedback:
                     Utils.sendEmail(getActivity());
                     dismiss = true;
                     listener.onSuccess(dismiss);
                     break;
-                case R.id.textView9:
+                case R.id.share_the_app:
                     dismiss = true;
                     listener.onSuccess(dismiss);
                     break;

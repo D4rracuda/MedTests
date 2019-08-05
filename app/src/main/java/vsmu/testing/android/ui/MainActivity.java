@@ -22,7 +22,7 @@ import com.igalata.bubblepicker.rendering.BubblePicker;
 
 import org.jetbrains.annotations.NotNull;
 
-import vsmu.testing.android.ActionBarDialog;
+import vsmu.testing.android.DialogDisciplines;
 import vsmu.testing.android.DismissListener;
 import vsmu.testing.android.R;
 import vsmu.testing.android.database.DBHelper;
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     PickerItem item;
     Toolbar mTopToolbar;
     int position;
-    ActionBarDialog actionbarDialog;
+    DialogDisciplines actionbarDialogDisciplines;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,10 +109,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(!MainActivity.this.isFinishing()){
             Bundle args = new Bundle();
             args.putString("title", getString(R.string.menu));
-            actionbarDialog = new ActionBarDialog();
-            actionbarDialog.setArguments(args);
-            actionbarDialog.show(getSupportFragmentManager(), "third_dialog");
-            actionbarDialog.setMyCustomListener(new DismissListener() {
+            actionbarDialogDisciplines = new DialogDisciplines();
+            actionbarDialogDisciplines.setArguments(args);
+            actionbarDialogDisciplines.show(getSupportFragmentManager(), "dialog_disciplines");
+            actionbarDialogDisciplines.setMyCustomListener(new DismissListener() {
 
                 @Override
                 public void onSuccess(boolean dismiss) {

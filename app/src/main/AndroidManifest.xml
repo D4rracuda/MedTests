@@ -20,7 +20,7 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.AboutTheApp"></activity>
+        <activity android:name=".ui.AboutTheAppActivity"></activity>
         <activity android:name=".ui.AccreditationSPOActivity" />
         <activity android:name=".ui.AccreditationActivity" />
         <activity

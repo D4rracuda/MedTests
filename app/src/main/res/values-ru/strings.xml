@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Тесты ВолгГМУ</string>
+    <string name="app_name">Медицинские тесты</string>
     <string name="test_discipline">Тесты по дисциплине</string>
     <string name="begin_test">Начать тест</string>
     <string name="continue_test">Продолжить</string>
