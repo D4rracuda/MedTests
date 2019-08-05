@@ -1,6 +1,7 @@
-package vsmu.testing.android.ui;
+package vsmu.testing.android;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,17 +10,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
 
-import vsmu.testing.android.R;
+import vsmu.testing.android.ui.AccreditationActivity;
+import vsmu.testing.android.ui.AccreditationSPOActivity;
+import vsmu.testing.android.ui.MainActivity;
 
 public class ActionBarDialog extends DialogFragment implements View.OnClickListener {
 
     Dialog dialog;
     TextView textView;
+    Intent intent;
+    Boolean dismiss = false;
+    private DismissListener listener;
+
+    public void setMyCustomListener(DismissListener listener) {
+        this.listener = listener;
+    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -41,7 +50,7 @@ public class ActionBarDialog extends DialogFragment implements View.OnClickListe
         v.findViewById(R.id.textView5).setOnClickListener(this);
         v.findViewById(R.id.textView6).setOnClickListener(this);
         v.findViewById(R.id.textView7).setOnClickListener(this);
-        v.findViewById(R.id.textView8).setOnClickListener(this);
+        v.findViewById(R.id.feedback).setOnClickListener(this);
         v.findViewById(R.id.textView9).setOnClickListener(this);
         Toolbar toolbar = v.findViewById(R.id.toolbar_second);
         toolbar.inflateMenu(R.menu.menu_second);
@@ -51,6 +60,8 @@ public class ActionBarDialog extends DialogFragment implements View.OnClickListe
             public boolean onMenuItemClick(MenuItem item) {
                 Log.i("click","click");
                 dialog.dismiss();
+                dismiss = true;
+                listener.onSuccess(dismiss);
                 return true;
             }
         });
@@ -65,27 +76,39 @@ public class ActionBarDialog extends DialogFragment implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View v) {switch (v.getId()) {
-        case R.id.textView3:
-            Toast.makeText(getActivity(), "click", Toast.LENGTH_LONG).show();
-            break;
-        case R.id.textView5:
-            Toast.makeText(getActivity(), "click 2", Toast.LENGTH_LONG).show();
-            break;
-        case R.id.textView6:
-            Toast.makeText(getActivity(), "click 3", Toast.LENGTH_LONG).show();
-            break;
-        case R.id.textView7:
-            Toast.makeText(getActivity(), "click 4", Toast.LENGTH_LONG).show();
-            break;
-        case R.id.textView8:
-            Toast.makeText(getActivity(), "click 5", Toast.LENGTH_LONG).show();
-            break;
-        case R.id.textView9:
-            Toast.makeText(getActivity(), "click 6", Toast.LENGTH_LONG).show();
-            break;
-        default:
-            break;
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.textView3:
+                    intent = new Intent(getContext(), MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    break;
+                case R.id.textView5:
+                    intent = new Intent(getContext(), AccreditationActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    break;
+                case R.id.textView6:
+                    intent = new Intent(getContext(), AccreditationSPOActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    break;
+                case R.id.textView7:
+
+                    break;
+                case R.id.feedback:
+                    Utils.sendEmail(getActivity());
+                    dismiss = true;
+                    listener.onSuccess(dismiss);
+                    break;
+                case R.id.textView9:
+                    dismiss = true;
+                    listener.onSuccess(dismiss);
+                    break;
+                default:
+                    break;
+            }
+        }
+
     }
-    }
-}

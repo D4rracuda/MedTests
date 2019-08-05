@@ -19,7 +19,7 @@ public class DisciplineAdapter extends PagerAdapter {
 
     public DisciplineAdapter(Context context){
         this.mContext = context;
-        this.mDisciplines = mContext.getResources().getStringArray(R.array.disсipline);
+        this.mDisciplines = mContext.getResources().getStringArray(R.array.disсiplines);
     }
 
     @Override

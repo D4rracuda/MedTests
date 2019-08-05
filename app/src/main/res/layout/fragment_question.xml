@@ -38,15 +38,15 @@
             android:id="@+id/next"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_37sdp"
-            android:layout_marginBottom="@dimen/_14sdp"
             android:layout_marginLeft="@dimen/_30sdp"
-            android:layout_marginRight="@dimen/_30sdp"
             android:layout_marginTop="@dimen/_14sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_14sdp"
             android:background="@drawable/selector_yellow"
             android:gravity="center"
             android:text="@string/ans"
             android:textAllCaps="false"
-            android:textColor="@color/green"
+            android:textColor="@color/white"
             android:textSize="@dimen/_15sdp" />
 
     </LinearLayout>

@@ -35,7 +35,7 @@ public class LearningWebActivity extends Activity {
         mWebView = findViewById(R.id.webView);
         back = findViewById(R.id.back);
         forward = findViewById(R.id.forward);
-        ((TextView) findViewById(R.id.toolbar_title)).setText(getResources().getStringArray(R.array.disсipline)[position]);
+        ((TextView) findViewById(R.id.toolbar_title)).setText(getResources().getStringArray(R.array.disсiplines)[position]);
         green = ContextCompat.getColor(this, R.color.green);
         ((ImageView) findViewById(R.id.navigationIcon)).setColorFilter(green);
 

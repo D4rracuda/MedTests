@@ -33,7 +33,7 @@ dependencies {
     implementation 'com.github.bluejamesbond:textjustify-android:2.1.1'
     implementation 'com.kyleduo.switchbutton:library:1.4.0'
     implementation 'info.hoang8f:android-segmented:1.0.6'
-    implementation(name:'menu', ext:'aar')
+    implementation(name: 'menu', ext: 'aar')
     //implementation 'com.github.igalata:Bubble-Picker:v0.2.4'
     implementation 'com.github.igalata:Bubble-Picker:develop-SNAPSHOT'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

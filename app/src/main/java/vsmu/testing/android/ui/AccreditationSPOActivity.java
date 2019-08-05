@@ -2,17 +2,14 @@ package vsmu.testing.android.ui;
 
 import android.content.Intent;
 import android.content.res.TypedArray;
-import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.igalata.bubblepicker.BubblePickerListener;
 import com.igalata.bubblepicker.adapter.BubblePickerAdapter;
@@ -29,29 +26,28 @@ import vsmu.testing.android.database.DBHelper;
 
 import static vsmu.testing.android.R.color.colorAccent;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class AccreditationSPOActivity extends AppCompatActivity {
 
     BubblePicker picker;
     PickerItem item;
     Toolbar mTopToolbar;
     int position;
-    ActionBarDialog actionbarDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_accreditation_spo);
 
-        mTopToolbar = findViewById(R.id.my_toolbar2);
+        mTopToolbar = findViewById(R.id.my_toolbarASPO);
         setSupportActionBar(mTopToolbar);
         mTopToolbar.setTitleTextColor(getResources().getColor(colorAccent));
-        setTitle(R.string.Disciplines);
+        setTitle(R.string.Accreditation_SPO);
 
-        picker = findViewById(R.id.picker);
+        picker = findViewById(R.id.pickerASPO);
         picker.setBubbleSize(1);
         picker.setCenterImmediately(true);
 
-        final String[] titles = getResources().getStringArray(R.array.disсiplines);
+        final String[] titles = getResources().getStringArray(R.array.accreditationSPO);
         final TypedArray colors = getResources().obtainTypedArray(R.array.colors);
 
         picker.setAdapter(new BubblePickerAdapter() {
@@ -66,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 item.setTitle(titles[position]);
                 item.setGradient(new BubbleGradient(colors.getColor((position * 2) % 8, 0),
                         colors.getColor((position * 2) % 8 + 1, 0), BubbleGradient.VERTICAL));
-                item.setTextColor(ContextCompat.getColor(MainActivity.this, android.R.color.white));
+                item.setTextColor(ContextCompat.getColor(AccreditationSPOActivity.this, android.R.color.white));
                 item.setCustomData(position);
                 return item;
             }
@@ -76,8 +72,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onBubbleSelected(@NotNull PickerItem item) {
                 picker.onPause();
                 position = (Integer)item.getCustomData();
-                DBHelper.getData().openDB(MainActivity.this, position);
-                startActivity(new Intent(MainActivity.this, TestingActivity.class)
+                DBHelper.getData().openDB(AccreditationSPOActivity.this, position);
+                startActivity(new Intent(AccreditationSPOActivity.this, TestingActivity.class)
                         .putExtra(TestingActivity.POSITION, position)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 overridePendingTransition(R.anim.in_right, R.anim.out_left);
@@ -85,9 +81,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             @Override
             public void onBubbleDeselected(@NotNull PickerItem item) {
+
             }
         });
-
     }
 
     @Override
@@ -96,32 +92,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         picker.onResume();
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.visitSite:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.site))));
-                break;
-        }
-    }
-
     public void showDialogThird(){
-        if(!MainActivity.this.isFinishing()){
-            Bundle args = new Bundle();
-            args.putString("title", getString(R.string.menu));
-            actionbarDialog = new ActionBarDialog();
-            actionbarDialog.setArguments(args);
-            actionbarDialog.show(getSupportFragmentManager(), "third_dialog");
-            actionbarDialog.setMyCustomListener(new DismissListener() {
+        Bundle args = new Bundle();
+        args.putString("title", getString(R.string.menu));
+        ActionBarDialog actionbarDialog = new ActionBarDialog();
+        actionbarDialog.setArguments(args);
+        actionbarDialog.show(getSupportFragmentManager(),
+                "third_dialog");
+        actionbarDialog.setMyCustomListener(new DismissListener() {
 
-                @Override
-                public void onSuccess(boolean dismiss) {
-                    picker.onResume();
-                }
-            });
-        }
+            @Override
+            public void onSuccess(boolean dismiss) {
+                picker.onResume();
+            }
+        });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -138,12 +123,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
     }
 }

@@ -10,18 +10,20 @@
 
 
     <com.igalata.bubblepicker.rendering.BubblePicker
-        android:id="@+id/picker"
+        android:id="@+id/pickerASPO"
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         app:backgroundColor="@android:color/background_light"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/textViewA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbarASPO" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
@@ -34,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/my_toolbar2"
+        android:id="@+id/my_toolbarASPO"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"

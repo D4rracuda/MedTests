@@ -151,7 +151,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/feedback"
         android:layout_width="match_parent"
         android:layout_height="40sp"
         android:layout_marginStart="24dp"
@@ -174,7 +174,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="8dp"
         android:background="@color/grayMain"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintBottom_toTopOf="@+id/feedback"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />

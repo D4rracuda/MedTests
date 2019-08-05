@@ -39,7 +39,7 @@ public class dbTesting {
     private String path;
 
     dbTesting(Context context) {
-        dbNames = context.getResources().getStringArray(R.array.databaseFileName);
+        dbNames = context.getResources().getStringArray(R.array.databaseFileNameDisciplines);
         path = String.format("//data//data//%s//databases//", context.getPackageName());
         for(String name : dbNames){
             try {

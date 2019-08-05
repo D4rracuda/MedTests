@@ -5,7 +5,7 @@
     <string name="continue_test">Continue</string>
     <string name="learning_materials">Learning material</string>
 
-    <array name="disсipline">
+    <array name="disсiplines">
         <item>Human Anatomy</item>
         <item>Biophysical properties of vital functions</item>
         <item>Cariesology and diseases of hard dental tissue</item>
@@ -28,7 +28,7 @@
         <item>Radiation diagnostics and therapy</item>
     </array>
 
-    <array name="databaseFileName">
+    <array name="databaseFileNameDisciplines">
         <item>AnatomyHuman</item>
         <item>BiophysProp</item>
         <item>Cariesology_and_diseases_of_hard_dental_tissue</item>
@@ -49,6 +49,54 @@
         <item>Psychiatry and narcology</item>
         <item>StomatologyEthics</item>
         <item>Xray</item>
+    </array>
+
+    <array name="accreditation">
+        <item>Farmacy</item>
+        <item>General medicine</item>
+        <item>Medical biochemistry</item>
+        <item>Preventive medicine</item>
+        <item>Pediatrics</item>
+        <item>Dentistry</item>
+        <item>Medical biophysics</item>
+        <item>Medical cybernetics</item>
+    </array>
+
+    <array name="databaseFileNameAccreditation">
+        <item>Acc_Farmatsiya</item>
+        <item>Acc_Lechebnoe_delo</item>
+        <item>Acc_Meditsinskaya_biokhimia</item>
+        <item>Acc_Medprof</item>
+        <item>Acc_Pediatria</item>
+        <item>Acc_Stomatologia</item>
+        <item>Acc_Meditsinskaya_biofizika</item>
+        <item>Acc_Meditsinskaya_kibernetika</item>
+    </array>
+
+    <array name="accreditationSPO">
+        <item>Midwifery</item>
+        <item>Laboratory diagnosis</item>
+        <item>Nursing</item>
+        <item>Pharmacy</item>
+        <item>Medicine</item>
+        <item>Preventive medicine SVE</item>
+        <item>Medical optics</item>
+        <item>Medical massage</item>
+        <item>Orthopedic dentistry</item>
+        <item>Preventive dentistry</item>
+    </array>
+
+    <array name="databaseFileNameAccreditationSPO">
+        <item>SPO_btz_akusherskoe_delo_2019</item>
+        <item>SPO_laba_2018_2703</item>
+        <item>SPO_sestrinskoe_delo_2018_2603</item>
+        <item>SPO_tz_farmatsiya_2018_23.03</item>
+        <item>SPO_tz_lechebnoe_delo_2018_2203</item>
+        <item>SPO_tz_mediko_profilakticheskoe_delo_2018_23.03</item>
+        <item>SPO_tz_meditsinskaya_optika_2018_23.03</item>
+        <item>SPO_tz_meditsinskiy_massazh_2018_23.03</item>
+        <item>SPO_tz_stomatologiya_ortopedicheskaya_2018_23.03</item>
+        <item>SPO_tz_stomatologiya_profilakticheskaya_2018_22.03</item>
     </array>
 
     <array name="learningMaterialURL">
