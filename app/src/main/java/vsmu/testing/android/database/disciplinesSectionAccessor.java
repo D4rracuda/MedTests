@@ -24,7 +24,7 @@ import vsmu.testing.android.model.Section;
 /**
  * Created by Dan on 05.04.2016.
  */
-public class dbTesting {
+public class disciplinesSectionAccessor {
 
     private static final String TABLE_SECTION      = "section";
     private static final String TABLE_QUESTION     = "question";
@@ -35,27 +35,38 @@ public class dbTesting {
     private static final String COLUMN_QUESTION = "question";
 
     private SQLiteDatabase db;
-    private String [] dbNames;
-    private String path;
+    private String [] subjectNames;
+    private String baseDatabaseFolder;
 
-    dbTesting(Context context) {
-        dbNames = context.getResources().getStringArray(R.array.databaseFileNameDisciplines);
-        path = String.format("//data//data//%s//databases//", context.getPackageName());
-        for(String name : dbNames){
+    private String sectionName;
+
+    disciplinesSectionAccessor(Context context) {
+        this.sectionName = "disciplinesSection";
+        this.subjectNames = context.getResources().getStringArray(R.array.databaseFileNameDisciplines);
+        this.baseDatabaseFolder = String.format("/data/data/%s/databases", context.getPackageName());
+        String sectionDatabaseFolder = String.format("%s/%s", this.baseDatabaseFolder, this.sectionName);
+        File file = new File(sectionDatabaseFolder);
+        if(!file.exists())
+            file.mkdirs();
+
+        for(String subjectName : subjectNames){
+            String sectionNameAndSubjectName = String.format("%s/%s", this.sectionName, subjectName);
+            String subjectDatabaseFileWoExtension = String.format("%s/%s", baseDatabaseFolder, sectionNameAndSubjectName);
+            String subjectDatabaseFileWithExtension = subjectDatabaseFileWoExtension + ".db";
             try {
-                this.db = SQLiteDatabase.openDatabase(path + name +".db", null, SQLiteDatabase.NO_LOCALIZED_COLLATORS | SQLiteDatabase.OPEN_READONLY);
+                this.db = SQLiteDatabase.openDatabase(subjectDatabaseFileWithExtension, null, SQLiteDatabase.NO_LOCALIZED_COLLATORS | SQLiteDatabase.OPEN_READONLY);
+                this.db.close();
             } catch (SQLiteException e) {
-                File file = new File(path);
-                if(!file.exists()) file.mkdirs();
-                copyDB(context, name, path + name);
+                copyDB(context, sectionNameAndSubjectName, subjectDatabaseFileWithExtension);
             }
         }
     }
 
-    private void copyDB(Context context, String name, String path) {
+    private void copyDB(Context context, String sectionNameAndSubjectName, String subjectDatabaseFileWithExtension) {
         try {
-            InputStream dbStream = context.getAssets().open(name + ".sqlite");
-            OutputStream output = new FileOutputStream(path + ".db");
+            String assetFileNameWithExtension = sectionNameAndSubjectName + ".sqlite";
+            InputStream dbStream = context.getAssets().open(assetFileNameWithExtension);
+            OutputStream output = new FileOutputStream(subjectDatabaseFileWithExtension);
             byte[] buffer = new byte[1024];
             int bytesRead;
             while ((bytesRead = dbStream.read(buffer)) > 0) {
@@ -69,13 +80,14 @@ public class dbTesting {
     }
 
     public void openDB(Context context, int position){
+        String subjectName = this.subjectNames[position];
+        String sectionNameAndSubjectName = String.format("%s/%s", this.sectionName, subjectName);
+        String subjectDatabaseFileWoExtension = String.format("%s/%s", this.baseDatabaseFolder, sectionNameAndSubjectName);
+        String subjectDatabaseFileWithExtension = subjectDatabaseFileWoExtension + ".db";
         try {
-            this.db = SQLiteDatabase.openDatabase(path + dbNames[position] + ".db", null, SQLiteDatabase.NO_LOCALIZED_COLLATORS | SQLiteDatabase.OPEN_READONLY);
+            this.db = SQLiteDatabase.openDatabase(subjectDatabaseFileWithExtension, null, SQLiteDatabase.NO_LOCALIZED_COLLATORS | SQLiteDatabase.OPEN_READONLY);
         } catch (SQLiteException e) {
-            File file = new File(path);
-            file.mkdirs();
-            copyDB(context, dbNames[position], path + dbNames[position]);
-            this.db = SQLiteDatabase.openDatabase(path + dbNames[position] + ".db", null, SQLiteDatabase.NO_LOCALIZED_COLLATORS | SQLiteDatabase.OPEN_READONLY);
+            e.printStackTrace();
         }
     }
 

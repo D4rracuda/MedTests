@@ -23,7 +23,7 @@ import com.igalata.bubblepicker.rendering.BubblePicker;
 import org.jetbrains.annotations.NotNull;
 
 import vsmu.testing.android.DialogDisciplines;
-import vsmu.testing.android.DismissListener;
+import vsmu.testing.android.DialogDismissListener;
 import vsmu.testing.android.R;
 import vsmu.testing.android.database.DBHelper;
 
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onBubbleSelected(@NotNull PickerItem item) {
                 picker.onPause();
                 position = (Integer)item.getCustomData();
-                DBHelper.getData().openDB(MainActivity.this, position);
+                DBHelper.getDataDisciplines().openDB(MainActivity.this, position);
                 startActivity(new Intent(MainActivity.this, TestingActivity.class)
                         .putExtra(TestingActivity.POSITION, position)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             actionbarDialogDisciplines = new DialogDisciplines();
             actionbarDialogDisciplines.setArguments(args);
             actionbarDialogDisciplines.show(getSupportFragmentManager(), "dialog_disciplines");
-            actionbarDialogDisciplines.setMyCustomListener(new DismissListener() {
+            actionbarDialogDisciplines.setMyCustomListener(new DialogDismissListener() {
 
                 @Override
                 public void onSuccess(boolean dismiss) {

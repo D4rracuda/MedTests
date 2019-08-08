@@ -25,9 +25,9 @@ public class DialogAccreditationSPO extends DialogFragment implements View.OnCli
     TextView textView;
     Intent intent;
     Boolean dismiss = false;
-    private DismissListener listener;
+    private DialogDismissListener listener;
 
-    public void setMyCustomListener(DismissListener listener) {
+    public void setMyCustomListener(DialogDismissListener listener) {
         this.listener = listener;
     }
 

@@ -3,13 +3,15 @@ package vsmu.testing.android.ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 import vsmu.testing.android.DialogAboutTheApp;
-import vsmu.testing.android.DialogAccreditation;
-import vsmu.testing.android.DismissListener;
 import vsmu.testing.android.R;
 
 import static vsmu.testing.android.R.color.colorAccent;
@@ -17,6 +19,7 @@ import static vsmu.testing.android.R.color.colorAccent;
 public class AboutTheAppActivity extends AppCompatActivity {
 
     Toolbar mTopToolbar;
+    ImageButton vkBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,16 @@ public class AboutTheAppActivity extends AppCompatActivity {
         setSupportActionBar(mTopToolbar);
         mTopToolbar.setTitleTextColor(getResources().getColor(colorAccent));
         setTitle(R.string.About_the_app);
+
+        vkBtn = findViewById(R.id.vk_button);
+        View.OnClickListener VK = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://vk.com/volgsmuapp"));
+                startActivity(browserIntent);
+            }
+        };
+        vkBtn.setOnClickListener(VK);
     }
 
     public void showDialogThird(){

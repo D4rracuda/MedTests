@@ -79,7 +79,7 @@ public class dbProgress  {
         c.moveToFirst();
         db.close();
         if(c.getCount() > 0) {
-            Question ans = DBHelper.getData().getAnswers(c.getInt(0));
+            Question ans = DBHelper.getDataDisciplines().getAnswers(c.getInt(0));
             updateTrue(c.getInt(0), ans.getRight_id(), ans.getText());
             Question q = new Question(c.getInt(0), c.getString(1), ans.getRight_id(), ans.getAnswers());
             c.close();

@@ -38,7 +38,7 @@ public class ChooseSections extends Fragment {
         final ListView listView = view.findViewById(R.id.list);
         SegmentedGroup segmented = view.findViewById(R.id.segmented);
         App.get().setSave(false);
-        sections = DBHelper.getData().getListSection();
+        sections = DBHelper.getDataDisciplines().getListSection();
         final SectionAdapter adapter = new SectionAdapter(view.getContext(), R.layout.item_section, sections);
         segments = new ArrayList<>();
         listView.setAdapter(adapter);
@@ -59,7 +59,7 @@ public class ChooseSections extends Fragment {
             }
         });
 
-        final ArrayList<Integer> items = App.get().db.getData().getSegmented();
+        final ArrayList<Integer> items = App.get().db.getDataDisciplines().getSegmented();
         for(int i : items){
             RadioButton radioButton = (RadioButton) inflater.inflate(R.layout.item_segment, null);
             if(items.get(items.size() - 1) == i)radioButton.setText(getString(R.string.all));
@@ -88,7 +88,7 @@ public class ChooseSections extends Fragment {
                 App.get().setMax(mCount);
                 App.get().setSave(true);
                 DBHelper.getProgress().delete_table();
-                DBHelper.getData().insertQuestions(TextUtils.join(",", getCheckIdList(sections)), mCount);
+                DBHelper.getDataDisciplines().insertQuestions(TextUtils.join(",", getCheckIdList(sections)), mCount);
                 App.get().setCheckedDiscipline(getCheckIdList(sections));
                 getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.in_right, R.anim.out_left).replace(R.id.frame,  new Questions()).commit();
             }

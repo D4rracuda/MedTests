@@ -20,8 +20,7 @@ import com.igalata.bubblepicker.rendering.BubblePicker;
 import org.jetbrains.annotations.NotNull;
 
 import vsmu.testing.android.DialogAccreditation;
-import vsmu.testing.android.DialogDisciplines;
-import vsmu.testing.android.DismissListener;
+import vsmu.testing.android.DialogDismissListener;
 import vsmu.testing.android.R;
 import vsmu.testing.android.database.DBHelper;
 
@@ -73,7 +72,7 @@ public class AccreditationActivity extends AppCompatActivity {
             public void onBubbleSelected(@NotNull PickerItem item) {
                 picker.onPause();
                 position = (Integer)item.getCustomData();
-                DBHelper.getData().openDB(AccreditationActivity.this, position);
+                DBHelper.getDataAccreditation().openDB(AccreditationActivity.this, position);
                 startActivity(new Intent(AccreditationActivity.this, TestingActivity.class)
                         .putExtra(TestingActivity.POSITION, position)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
@@ -101,7 +100,7 @@ public class AccreditationActivity extends AppCompatActivity {
         dialogAccreditation.setArguments(args);
         dialogAccreditation.show(getSupportFragmentManager(),
                 "dialog_disciplines");
-        dialogAccreditation.setMyCustomListener(new DismissListener() {
+        dialogAccreditation.setMyCustomListener(new DialogDismissListener() {
 
             @Override
             public void onSuccess(boolean dismiss) {

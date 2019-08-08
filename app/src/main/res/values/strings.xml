@@ -54,23 +54,23 @@
     <array name="accreditation">
         <item>Farmacy</item>
         <item>General medicine</item>
+        <item>Medical biophysics</item>
         <item>Medical biochemistry</item>
+        <item>Medical cybernetics</item>
         <item>Preventive medicine</item>
         <item>Pediatrics</item>
         <item>Dentistry</item>
-        <item>Medical biophysics</item>
-        <item>Medical cybernetics</item>
     </array>
 
     <array name="databaseFileNameAccreditation">
         <item>Acc_Farmatsiya</item>
         <item>Acc_Lechebnoe_delo</item>
+        <item>Acc_Meditsinskaya_biofizika</item>
         <item>Acc_Meditsinskaya_biokhimia</item>
+        <item>Acc_Meditsinskaya_kibernetika</item>
         <item>Acc_Medprof</item>
         <item>Acc_Pediatria</item>
         <item>Acc_Stomatologia</item>
-        <item>Acc_Meditsinskaya_biofizika</item>
-        <item>Acc_Meditsinskaya_kibernetika</item>
     </array>
 
     <array name="accreditationSPO">

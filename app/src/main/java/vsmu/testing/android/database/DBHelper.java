@@ -12,7 +12,9 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "TestingBase.db";
     private static final int    DB_VERSION    = 1;
 
-    private final dbTesting testing;
+    private final disciplinesSectionAccessor testingDisciplines;
+    private final advancedAccreditationSectionAccessor testingAccreditation;
+    private final middleAccreditationSectionAccessor testingAccreditationSPO;
     private final dbProgress progress;
 
     private static DBHelper instance;
@@ -21,8 +23,14 @@ public class DBHelper extends SQLiteOpenHelper {
         return instance;
     }
 
-    public static dbTesting getData(){
-        return get().testing;
+    public static disciplinesSectionAccessor getDataDisciplines(){
+        return get().testingDisciplines;
+    }
+    public static advancedAccreditationSectionAccessor getDataAccreditation(){
+        return get().testingAccreditation;
+    }
+    public static middleAccreditationSectionAccessor getDataAccreditationSPO(){
+        return get().testingAccreditationSPO;
     }
 
     public static dbProgress getProgress() {
@@ -33,7 +41,9 @@ public class DBHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DB_VERSION);
         instance = this;
         progress = new dbProgress(this);
-        testing = new dbTesting(context);
+        testingDisciplines = new disciplinesSectionAccessor(context);
+        testingAccreditation = new advancedAccreditationSectionAccessor(context);
+        testingAccreditationSPO = new middleAccreditationSectionAccessor(context);
     }
 
     @Override

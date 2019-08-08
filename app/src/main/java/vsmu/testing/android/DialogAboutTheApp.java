@@ -25,9 +25,9 @@ public class DialogAboutTheApp extends DialogFragment implements View.OnClickLis
     TextView textView;
     Intent intent;
     Boolean dismiss = false;
-    private DismissListener listener;
+    private DialogDismissListener listener;
 
-    public void setMyCustomListener(DismissListener listener) {
+    public void setMyCustomListener(DialogDismissListener listener) {
         this.listener = listener;
     }
 
